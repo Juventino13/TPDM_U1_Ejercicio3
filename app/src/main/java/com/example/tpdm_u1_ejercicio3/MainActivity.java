@@ -17,6 +17,7 @@ Button boton1, boton2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         boton1 = findViewById(R.id.boton);
         boton2 = findViewById(R.id.boton2);
@@ -25,7 +26,7 @@ Button boton1, boton2;
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder alerta = new AlertDialog.Builder(MainActivity.this);
-                EditText edad = new EditText(MainActivity.this);
+              final   EditText edad = new EditText(MainActivity.this);
 
                 edad.setInputType(InputType.TYPE_CLASS_DATETIME);
                 edad.setHint("Mayor a 0 menor de 100");
@@ -36,7 +37,7 @@ Button boton1, boton2;
                 alerta.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(MainActivity.this, "Su edad" + edad.getText());
+                        Toast.makeText(MainActivity.this, "Su edad" + edad.getText().toString(), Toast.LENGTH_LONG).show();
                     }
                 });
                 alerta.show();
